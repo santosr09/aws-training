@@ -14,6 +14,8 @@ Load key "uno-ceo.pem": bad permissions
 SOLVED:
 In PowerShell execute these commands:
 
+source
+----
 $path = ".\uno-ceo.pem"
 # Reset to remove explicit permissions
 icacls.exe $path /reset
@@ -21,3 +23,4 @@ icacls.exe $path /reset
 icacls.exe $path /GRANT:R "$($env:USERNAME):(R)"
 # Disable inheritance and remove inherited permissions
 icacls.exe $path /inheritance:r
+----
