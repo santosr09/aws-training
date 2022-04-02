@@ -13,7 +13,8 @@ This private key will be ignored.
 Load key "uno-ceo.pem": bad permissions
 
 
-SOLVED:
+SOLUTION:
+ON WINDOWS:
 In PowerShell execute these commands:
 
 [source]
@@ -26,3 +27,11 @@ icacls.exe $path /GRANT:R "$($env:USERNAME):(R)"
 # Disable inheritance and remove inherited permissions
 icacls.exe $path /inheritance:r
 --
+
+ON LINUX:
+#Read access for your user
+chmod 400 <KEY-PAIRS.pem>
+
+#Read/write access for your user
+chmod 600 <KEY-PAIRS.pem>
+
